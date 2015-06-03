@@ -1,9 +1,12 @@
 package com.example.saturn.tennisreport;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class GhiTranDau extends ActionBarActivity {
@@ -12,6 +15,26 @@ public class GhiTranDau extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ghi_tran_dau);
+
+        Button btInfo = (Button)findViewById(R.id.btThongTin);
+        btInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(GhiTranDau.this, ThongTin.class);
+                //myIntent.putExtra("key", value); //Optional parameters
+                GhiTranDau.this.startActivity(myIntent);
+            }
+        });
+
+        Button btStartMatch = (Button)findViewById(R.id.btBatDau);
+        btStartMatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(GhiTranDau.this, TranDau.class);
+                //myIntent.putExtra("key", value); //Optional parameters
+                GhiTranDau.this.startActivity(myIntent);
+            }
+        });
     }
 
 
